@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Seleciono un objeto</h1>
+    <label for="">Seleccione uno</label>
+    <select name="objetos" id="objetos">
+        <option value="elija">Elija una</option>
+        <option value="mov">Movil</option>
+        <option value="tab">Tablet</option>
+    </select>
+    <label for="">Seleccione un color</label>
+    <input type="color" id="color" disabled>
+    <script>
+        document.getElementById('objetos').addEventListener('change',verColor);
+        function verColor(){
+        let obj = document.getElementById('objetos').value;
+        if (obj=='mov'){
+            document.getElementById('color').removeAttribute('disabled');
+        } else{
+            document.getElementById('color').setAttribute('disabled',"");
+        }
+        }
+    </script>
+</body>
+</html>
