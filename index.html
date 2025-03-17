@@ -20,7 +20,7 @@
     </select>
     <label for="">Seleccione un color</label>
     <input type="color" id="color" disabled>
-    <form action="procesa.php" onsubmit="validaFormulario">
+    <form action="procesa.php" onsubmit="validaFormulario()">
         <label for="pais">País:</label>
         <select name="pais" id="pais">
         <option value="">Elija una</option>
@@ -29,6 +29,7 @@
     </select>
     <label for="provincia">Provincia:</label>
     <select name="provincia" id="provincia">
+        <option value="">Elija</option>
         <option value="ciu">Ciudad Real</option>
         <option value="Toledo">Toledo</option>
         <option value="Albacete">Albacete</option>
@@ -54,6 +55,8 @@
             document.getElementById('provincia').style.visibility="hidden";
         }
         }
+        document.getElementById("pais").addEventListener('change',validaFormulario);
+        document.getElementById("provincia").addEventListener('change',validaFormulario);
         function validaFormulario(){
             if (document.getElementById('pais').value===""){
                 alert("Debe elegir una opción");
