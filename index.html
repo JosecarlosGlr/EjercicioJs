@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #provincia{
+        visibility: hidden;
+    }
+</style>
 <body>
     <h1>Seleciono un objeto</h1>
     <label for="">Seleccione uno</label>
@@ -15,6 +20,21 @@
     </select>
     <label for="">Seleccione un color</label>
     <input type="color" id="color" disabled>
+    <form action="">
+        <label for="pais">País:</label>
+        <select name="pais" id="pais">
+        <option value="elija">Elija una</option>
+        <option value="españa">España</option>
+        <option value="fuera">Fuera de españa</option>
+    </select>
+    <label for="provincia">Provincia:</label>
+    <select name="provincia" id="provincia">
+        <option value="ciu">Ciudad Real</option>
+        <option value="Toledo">Toledo</option>
+        <option value="Albacete">Albacete</option>
+    </select>
+    
+    </form>
     <script>
         document.getElementById('objetos').addEventListener('change',verColor);
         function verColor(){
@@ -23,6 +43,15 @@
             document.getElementById('color').removeAttribute('disabled');
         } else{
             document.getElementById('color').setAttribute('disabled',"");
+        }
+        }
+        document.getElementById('pais').addEventListener('change',verProvincia);
+        function verProvincia(){
+        let pais = document.getElementById('pais').value;
+        if (pais=='españa'){
+            document.getElementById('provincia').style.visibility="visible";
+        } else{
+            document.getElementById('provincia').style.visibility="hidden";
         }
         }
     </script>
