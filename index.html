@@ -20,10 +20,10 @@
     </select>
     <label for="">Seleccione un color</label>
     <input type="color" id="color" disabled>
-    <form action="">
+    <form action="procesa.php" onsubmit="validaFormulario">
         <label for="pais">País:</label>
         <select name="pais" id="pais">
-        <option value="elija">Elija una</option>
+        <option value="">Elija una</option>
         <option value="españa">España</option>
         <option value="fuera">Fuera de españa</option>
     </select>
@@ -33,7 +33,7 @@
         <option value="Toledo">Toledo</option>
         <option value="Albacete">Albacete</option>
     </select>
-    
+    <input type="button" value="Enviar">
     </form>
     <script>
         document.getElementById('objetos').addEventListener('change',verColor);
@@ -53,6 +53,16 @@
         } else{
             document.getElementById('provincia').style.visibility="hidden";
         }
+        }
+        function validaFormulario(){
+            if (document.getElementById('pais').value===""){
+                alert("Debe elegir una opción");
+                return false;
+            } if(document.getElementById('pais').value==="españa" && document.getElementById('provincia').value===""){
+                alert("Debe elegir una provincia");
+                return false;
+            }
+            return true;
         }
     </script>
 </body>
